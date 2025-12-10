@@ -77,14 +77,13 @@ Decision rule:
 
 ---
 
-# Summary of the full pipeline
+# Overall workflow
 
-- Stage 1: Learn latent features of the old concept using Model 1
-- Stage 2: Map new streaming samples to the same latent space using Model 2  
-- Stage 3: Autoencoder learns the structure of the old latent space  
-- Drift detected: when new latent vectors not reconstructed well
+<img src="figures/workflow_AE.png" alt="Overall workflow in three stages" style="width:70%">
 
 ---
+
+# Thank you!
 
 
 
