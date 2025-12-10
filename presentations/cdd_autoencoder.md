@@ -20,7 +20,7 @@ December 2025
 # Stage 1: Pre-training Model (Model 1)
 ## Goal: Learn latent representation of the old concept
 
-- **Input:** drift-free historical dataset $X_{\text{old}} = \{x_i\}$  
+- **Input:** non-drift historical dataset $X_{\text{old}} = \{x_i\}$  
 - Train Model 1 on $X_{\text{old}}$   
 - For each sample $x_i \in X_{\text{old}}$:
   - compute latent vector $a^{(L)}_i = \text{Model1}(x_i)$
