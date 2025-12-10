@@ -1,16 +1,19 @@
 # Concept Drift Detection Based on DNNs and Autoencoders
 Lisha Hu, Yaru Lu, Yuehua Feng
-Eirini Tzanaki, December 2025
+
+Eirini Tzanaki
+
+December 2025
 
 ---
 
 # Methodology Overview
 
-- Semi-supervised Concept Drift Detection in data streams
-- 3-stage framework in a stable latent space:
-  - Stage 1: Learn latent features of the old concept
-  - Stage 2: Map new samples to the same latent space
-  - Stage 3: Autoencoder and reconstruction error to detect drift
+- Latent-space-based Concept Drift Detection
+- 3-stage framework:
+  - Stage 1: Pre-training process
+  - Stage 2: Latent features extraction from streaming data
+  - Stage 3: Autoencoder as drift indicator
 
 ---
 
@@ -54,4 +57,34 @@ Eirini Tzanaki, December 2025
 $$
 T = \mu + 3\sigma
 $$
+
+---
+
+# Drift Detection on the Stream
+## Goal: Decide whether drift has occurred
+
+For each new latent vector $o^{(L)}_t \in O$:
+
+- Reconstruction:
+  - $\hat{o}_t = \text{AE}(o^{(L)}_t)$
+- Error:
+  - $e_t = \|o^{(L)}_t - \hat{o}_t\|$
+
+Decision rule:
+
+- If $e_t \le T$ → **non-drift (normal)**  
+- If $e_t > T$ → **drift detected** at time $t$
+
+---
+
+# Summary of the full pipeline
+
+- Stage 1: Learn latent features of the old concept using Model 1
+- Stage 2: Map new streaming samples to the same latent space using Model 2  
+- Stage 3: Autoencoder learns the structure of the old latent space  
+- Drift detected: when new latent vectors not reconstructed well
+
+---
+
+
 
